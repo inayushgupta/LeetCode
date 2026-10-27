@@ -15,5 +15,7 @@ class Solution:
 
             if len(stack) >= 1 and stack[-1] > time_to_reach:
                 stack.append(time_to_reach)
+            else:
+                stack.pop()
 
         return len(stack)
