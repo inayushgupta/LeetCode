@@ -2,6 +2,8 @@ class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
 
         dp = [float('inf')] * (amount+1)
+        dp[0] = 0
+        coins.sort()
 
         for total_amount in range(1, len(dp)):
 
@@ -14,4 +16,4 @@ class Solution:
                 dp[total_amount] = min(dp[required_amount] + 1, dp[total_amount])
 
         
-        return dp[-1]
+        return dp[-1] if dp[-1] != float('inf') else 0
