@@ -2,5 +2,14 @@ class Solution:
     def carFleet(self, target: int, position: list[int], speed: list[int]) -> int:
 
         # zip the two arrays together so it is easier to sort
-        print(zip(speed, position))
-        return 1
+        cars = list(zip(speed, position))
+        stack = []
+
+        for s, p in cars:
+
+            time_to_reach = ( target - p ) / s
+
+            if len(stack) >= 1 and stack[-1] > time_to_reach:
+                stack.append(time_to_reach)
+
+        return len(stack)
