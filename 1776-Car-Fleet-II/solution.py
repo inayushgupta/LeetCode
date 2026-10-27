@@ -3,6 +3,7 @@ class Solution:
 
         # zip the two arrays together so it is easier to sort
         cars = list(zip(speed, position))
+        cars.sort()
         stack = []
 
         for s, p in cars:
