@@ -8,8 +8,11 @@ class Solution:
         for s, p in cars:
 
             time_to_reach = ( target - p ) / s
+            if not stack:
+                stack.append(time_to_reach)
+                continue
 
-            if len(stack) >= 1 and stack[-1] > time_to_reach:
+            if len(stack) >= 2 and stack[-1] > time_to_reach:
                 stack.append(time_to_reach)
 
         return len(stack)
